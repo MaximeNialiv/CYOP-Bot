@@ -50,7 +50,7 @@ module.exports = new Script({
                 }
 
                 if (!_.has(scriptRules, upperText)) {
-                    return bot.say(` Désolé ${name}... Je ne suis qu'un BOT, qu'un reflet... Je ne comprends pas tout, utilise des mots simples, ou les boutons proposés`).then(() => 'speak');
+                    return bot.say(` Désolé, il faut interagir qu'avec des chiffres.`).then(() => 'speak');
                 }
 
                 var response = scriptRules[upperText];
