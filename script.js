@@ -13,26 +13,18 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say(`*Un robot inanimé posé sur une table* \n *Des larges yeux perplexes s'ouvrent à votre passage* \n Je suis le bot personnel de Maxime, un jeune-diplômé en communication et innovation, il m'a chargé de discuter à sa place. \n![maxime](https://raw.githubusercontent.com/MaximeNialiv/EstherBot/master/img/maxime.jpg)`)
-                .then(() => 'askName');
-        }
-    },
-
-    askName: {
-        prompt: (bot) => bot.say(`Puis-je connaître ton nom avant de commencer ?`),
-        receive: (bot, message) => {
-            const name = message.text;
-            return bot.setProp('name', name)
-                .then(() => bot.say(` ${name}... C'est un joli nom ! \n Enfin, c'est ce que l'on m'a dit de dire. Je ne saurais juger^^'\n Ma conversation est un peu laborieuse, vous ne pouvez me répondre qu'au moyen des mots en capitales, allez-y parlez BOT pour voir :) \n`))
+            return bot.say(`Ceci est un Livre dont vous êtes le Héros, ou CYOP - Choose Your Own Path. Il suffit de taper le n° du paragraphe pour le voir apparaître. Le système pour compter vos points de vies doit être fait à la main avec du papier et deux dés ;) Tapez : "REGLES" pour lire les règles, et "0" pour commencer.`)
                 .then(() => 'speak');
         }
     },
+     
     error: {
-        prompt: (bot) => bot.say(` Désolé ${name}... Je ne suis qu\'un BOT, qu\'un reflet... Je ne comprends pas tout, utilise des mots simples, ou les boutons proposé`),
+        prompt: (bot) => bot.say(`Il faut interagir avec les n° de paragraphe.`),
         receive: () => 'speak'
     },
+    
     speak: {
-        prompt: (bot) => bot.say(`Avant de commencer à discuter, je dois te prévenir, je comprends les mots-clés, mais les phrases m\'échappent... \n Mais ne t\'inquiètes pas ${name} , on va bien arriver à discuter :) `),
+        prompt: (bot) => bot.say(`Il faut interagir avec les n° de paragraphe.`),
         receive: (bot, message) => {
 
             let upperText = message.text.trim().toUpperCase();
