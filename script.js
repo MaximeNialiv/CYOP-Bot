@@ -18,12 +18,7 @@ module.exports = new Script({
         }
     },
      
-    error: {
-        prompt: (bot) => bot.say(`Il faut interagir avec les n° de paragraphe.`),
-        receive: () => 'speak'
-    },
-    
-    speak: {
+      speak: {
         prompt: (bot) => bot.say(`Il faut interagir avec les n° de paragraphe.`),
         receive: (bot, message) => {
 
